@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <meta name="Author" content="Arvin"/>
+    <title>文章详情</title>
+    <link rel="icon" href="static/Images/favicon.ico"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
+    <link rel="stylesheet" href="static/Css/me.css"/>
+    <link rel="stylesheet" href="static/Css/index.css"/>
+</head>
+<body>
+
+<div class="frame" style="width: 100%;height:100%;position:relative;">
+    <!-- 导航 -->
+    <nav class="ui inverted attached segment m-padded-tb-mini">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <a href="#" class="item"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于团队</a>
+                <div class="right m-mobile-hide m-item item">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="Search...."/>
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--icon-->
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+    <!-- Content -->
+    <div class="m-container-small m-padded-tb-big">
+       <div class="ui container">
+           <!-- Header -->
+           <div class="ui top attached segment">
+               <div class="ui horizontal link list">
+                   <div class="item">
+                       <img src="https://picsum.photos/seed/picsum/100/100" alt="" class="ui avatar image"/>
+                       <div class="content"><a href="#" class="header">Arvin</a></div>
+                   </div>
+                   <div class="item">
+                       <i class="calendar icon"></i>2022-04-09
+                   </div>
+                   <div class="item">
+                       <i class="eye icon"></i> 666
+                   </div>
+               </div>
+           </div>
+           <!-- Imager -->
+           <div class="ui attached segment">
+               <img src="https://picsum.photos/seed/picsum/800/450" alt="Image" class="ui fluid rounded image">
+           </div>
+           <!-- Content -->
+           <div class="ui attached padded segment">
+               <div class="ui right aligned basic segment">
+                   <div class="ui orange basic label">测试</div>
+               </div>
+               <H2 class="ui center aligned header">关于文章测试文档</H2>
+               <br>
+               <div id="content" class="m-padded-lr-responsive m-padded-tb-large">
+                   <p>WINAPI 其实就是 _stdcall 有时候也会写作 CALLBACK 它和 WINAPI 等效<br>WinMain 是Windows程序的入口函数</p>
+                   <h3 id="WinMain的第一个参数："><a href="#WinMain的第一个参数：" class="headerlink" title="WinMain的第一个参数："></a>WinMain的第一个参数：</h3><p>HINSTANCE类型的hInstance，它表示该程序当前运行的实例句柄。<br>我们可以对这个类型HINSTANCE进行字面上的理解，h前缀表示这个参数的类型为handle(句柄)，句柄的意思，而后面的Instance中文意思是实例，将两个意思结合起来，所以这个类型就是实例句柄。<br>hInstance其实就是一个数值。当一个程序在Windows下运行时，它唯一对应一个运行中的实例，也只有运行中的程序实例，才有资格分配到句柄。<br>一个应用程序可以运行多个实例，每运行一个实例，系统都会给该实例分配一个句柄，并且通过hInstance参数传递给程序的入口点WinMain函数。</p>
+                   <h3 id="WinMain的第二个参数："><a href="#WinMain的第二个参数：" class="headerlink" title="WinMain的第二个参数："></a>WinMain的第二个参数：</h3><p>HINSTANCE类型的hPrevInstance,表示当前实例的前一个实例句柄。<br>​我们可以对这个参数进行字面上的理解，h表示参数类型为句柄，Prev代表先前的(Previous)意思，Instance依旧表示实例，那么组合起来就是先前的实例句柄，这样顾名思义，是不是很好记忆呢，对于这个参数用法，MSDN中明确表示在Win32环境下，该参数总是取NULL，这就是说在Win32环境下这个参数没有存在感，不起任何作用，只是在进行WinMain函数书写时需要将它专门做为一个参数表示出来而已。</p>
+                   <h3 id="WinMain的第三个参数："><a href="#WinMain的第三个参数：" class="headerlink" title="WinMain的第三个参数："></a>WinMain的第三个参数：</h3><p>LPSTR类型的lpCmdLine，它是一个以空终止的字符串，指定传递给运用程序的命令行参数。<br>依旧是进行参数肢解：lp前缀表示这个参数是一个指针，Cmd表示Command，命令的意思，与Line组合起来就表示命令行。<br>例如在Windows7操作系统下的E盘有一个叫ForTheDream.txt的文件，我们用鼠标双击这个文件时将启动记事本程序(notepad.exe)。<br>此时系统会将E:\ForTheDream.txt作为命令行的参数传递给记事本程序的WinMain函数，记事本程序会在得到这个文件的路径后，就会在窗口中正确显示这个文件的内容。</p>
+                   <h3 id="WinMain的第四个参数："><a href="#WinMain的第四个参数：" class="headerlink" title="WinMain的第四个参数："></a>WinMain的第四个参数：</h3><p>int类型的nCmdShow，指定程序窗口应该如何显示，是最大化，最小化，还是隐藏等等。<br>这个参数可有如下取值：</p>
+                   <table>
+                       <thead>
+                       <tr>
+                           <th>参数</th>
+                           <th>值</th>
+                           <th>意义</th>
+                       </tr>
+                       </thead>
+                       <tbody><tr>
+                           <td>SW_HIDE</td>
+                           <td>0</td>
+                           <td>隐藏此窗口并激活另一个窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_MAXIMIZE</td>
+                           <td>3</td>
+                           <td>最大化指定的窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_MINIMIZE</td>
+                           <td>6</td>
+                           <td>最小化指定的窗口并激活当前Z次序中顶部的窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_RESTOPE</td>
+                           <td>9</td>
+                           <td>激活并显示此窗口，如果此窗口被最小化或者最大化了，系统会恢复它到原始尺寸的位置，一个应用程序应该在恢复最小化的窗口时指定此SW_RESTORE标识</td>
+                       </tr>
+                       <tr>
+                           <td>SW_SHOW</td>
+                           <td>5</td>
+                           <td>以当前的尺寸和位置激活与显示指定窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_SHOWMAXIMIZED</td>
+                           <td>3</td>
+                           <td>最大化激活并显示这个窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_SHOWMINIMIZED</td>
+                           <td>2</td>
+                           <td>最小化激活并显示这个窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_SHOWMINNOACTIVE</td>
+                           <td>7</td>
+                           <td>最小化显示这个窗口，与SW_SHOWMINIMIZED唯一的区别是不会去激活指定的窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_SHOWNA</td>
+                           <td>8</td>
+                           <td>以当前的尺寸和位置激活与显示指定窗口，与SW_SHOW的唯一区别是不会去激活指定的窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_SHOWNOACTIVATE</td>
+                           <td>4</td>
+                           <td>显示一个窗口，若指定的窗口是最小化或者最大化的，系统会恢复其到原始尺寸和位置，与SW_SHOWNORMAL的唯一区别是不会去激活指定的窗口</td>
+                       </tr>
+                       <tr>
+                           <td>SW_SHOWNORMAL</td>
+                           <td>1</td>
+                           <td>激活和显示一个窗口，若指定的窗口是最小化或者最大化的，系统会恢复其到原始尺寸和位置。一个应用程序应该在第一次显示窗口的时候指定这个标识</td>
+                       </tr>
+                       </tbody></table>
+                   <h2 id="MessageBox函数"><a href="#MessageBox函数" class="headerlink" title="MessageBox函数"></a>MessageBox函数</h2><p>MessageBox函数，它用于显示一个消息框，可以通过一些参数来设置这个消息框的样式。在MSDN中查到这个函数有如下原型：</p>
+                   <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">Int WINAPI <span class="title">MessageBox</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">_In_opt_ HWND hWnd,</span></span></span><br><span class="line"><span class="params"><span class="function">_In_opt_ LPCTSTR lpTest,</span></span></span><br><span class="line"><span class="params"><span class="function">_In_opt_ LPCTSTR lpCaption,</span></span></span><br><span class="line"><span class="params"><span class="function">_In_ UINT uType</span></span></span><br><span class="line"><span class="params"><span class="function">)</span></span>;</span><br></pre></td></tr></table></figure>
+                   <p>这里的_In_opt 类似于之前提到过的_in，只不过是后面多了一个_opt,表示可选的（Optional），两个词组合在一起就表示”可选的输入参数”了。就是说这个参数我们可以自己填内容，不填具体内容的话直接填NULL也行得通，选择权在于我们。</p>
+                   <h3 id="MessageBox函数第一个参数："><a href="#MessageBox函数第一个参数：" class="headerlink" title="MessageBox函数第一个参数："></a>MessageBox函数第一个参数：</h3><p>HWND类型的hWnd，表示我们显示的消息框所属的窗口的句柄。在进行Windows编程中，我们常常要和句柄打交道，后面我们会具体阐述什么是句柄，在我们的Visual Studio程序中，这个参数设为了NULL，表示消息框是从属于桌面。</p>
+                   <h3 id="MessageBox函数的第二个参数："><a href="#MessageBox函数的第二个参数：" class="headerlink" title="MessageBox函数的第二个参数："></a>MessageBox函数的第二个参数：</h3><p>LPCTSTR类型的lpText，它是一个以NULL结尾的字符串，表示所要显示的消息的内容。</p>
+                   <h3 id="MessageBox函数的第三个参数："><a href="#MessageBox函数的第三个参数：" class="headerlink" title="MessageBox函数的第三个参数："></a>MessageBox函数的第三个参数：</h3><p>LPCTSTR类型的lpCaption，它也是一个以NULL结尾的字符串，在其中填我们要显示的消息框的标题的内容。</p>
+                   <h3 id="MessageBox函数的第四个参数："><a href="#MessageBox函数的第四个参数：" class="headerlink" title="MessageBox函数的第四个参数："></a>MessageBox函数的第四个参数：</h3><p>UINT类型的uType，表示我们消息窗口需要什么样的样式。微软已经为我们定义好了很多可供选择的样式和消息对应的图标，一些常用的样式列表如下：</p>
+                   <table>
+                       <thead>
+                       <tr>
+                           <th>标识名（Flags）</th>
+                           <th>含有精析</th>
+                       </tr>
+                       </thead>
+                       <tbody><tr>
+                           <td>MB_ABORTRETRYIGNORE</td>
+                           <td>消息框带有三个按钮：Abort、Retry和Ignore</td>
+                       </tr>
+                       <tr>
+                           <td>MB_OK</td>
+                           <td>消息框带有唯一一个按钮：OK。需要注意的是，MB_OK 是系统默认的MessageBox函数样式</td>
+                       </tr>
+                       <tr>
+                           <td>MB_OKCANCEL</td>
+                           <td>消息框带有两个按钮：OK和Cancel</td>
+                       </tr>
+                       <tr>
+                           <td>MB_RETRYCANCEL</td>
+                           <td>消息框带有两个按钮：Retry和Cancel</td>
+                       </tr>
+                       <tr>
+                           <td>MB_YESNO</td>
+                           <td>消息框带有两个按钮：YES和NO</td>
+                       </tr>
+                       <tr>
+                           <td>MB_YESNOCANCEL</td>
+                           <td>消息框带有三个按钮：YES、NO和Cancel</td>
+                       </tr>
+                       </tbody></table>
+                   <p>常见的图标我们也是通过一些标识名来指定，如以下几种：</p>
+                   <table>
+                       <thead>
+                       <tr>
+                           <th>标识名（Flags）</th>
+                           <th>含义精析</th>
+                       </tr>
+                       </thead>
+                       <tbody><tr>
+                           <td>MB_ICONWARNING</td>
+                           <td>“警告”图标</td>
+                       </tr>
+                       <tr>
+                           <td>MB_ICONASTERISK</td>
+                           <td>“风险”图标</td>
+                       </tr>
+                       <tr>
+                           <td>MB_ICONSTOP</td>
+                           <td>“停止”图标</td>
+                       </tr>
+                       </tbody></table>
+                   <p>这里只列出了一些常用的标识，完整版可以自行查阅MSDN。<br>想要多个标识一起使用的话，我们可以采用逻辑或（Logical OR）把不同的标识连接起来，具体的符号是键盘上Enter键上方的那条竖杠”|”。比如要创建一个具有YES和NO的按钮并带有”问号”图标的消息框，我们就把uType填成这样：MB_YESNO|MB_ICONQUESTION,非常直观。后面我们也会经常碰到类似的、需要多个标识符同时使用的场合，用一下这条竖杠”|”连接一下就好了。<br>和大多数Win32函数一样，MessageBox函数也有返回值。在Visual Studio示例程序中，这个返回值可以忽略。而如果我们创建了具有对应按钮的消息框，就涉及到按下具体的按键，就需要给出按键的返回值，这样我们就需要判断哪个键被按下了，再对应作出相应的响应。返回值的列表如下：</p>
+                   <table>
+                       <thead>
+                       <tr>
+                           <th>返回值类型</th>
+                           <th>精析</th>
+                       </tr>
+                       </thead>
+                       <tbody><tr>
+                           <td>IDABORT</td>
+                           <td>按下Abort后的返回值</td>
+                       </tr>
+                       <tr>
+                           <td>IDCANCEL</td>
+                           <td>按下Cancel后的返回值</td>
+                       </tr>
+                       <tr>
+                           <td>IDIGNORE</td>
+                           <td>按下Ignore后的返回值</td>
+                       </tr>
+                       <tr>
+                           <td>IDNO</td>
+                           <td>按下NO之后的返回值</td>
+                       </tr>
+                       <tr>
+                           <td>IDOK</td>
+                           <td>按下OK之后的返回值</td>
+                       </tr>
+                       <tr>
+                           <td>IDRETRY</td>
+                           <td>按下Retry之后的返回值</td>
+                       </tr>
+                       <tr>
+                           <td>IDYES</td>
+                           <td>按下Yes之后的返回值</td>
+                       </tr>
+                       </tbody></table>
+                   <p>这个短小的函数MessageBox我们算是讲完了。它虽然很简单，但是非常好用，可谓麻雀虽小五脏俱全，特别是在需要向玩家显示出错误消息的时候，比如我们写了一个函数，在程序执行出错的时候我们要知道出错的地方，就可以这样来写：</p>
+                   <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>（error）&#123;</span><br><span class="line">MessageBox（<span class="literal">NULL</span>,<span class="string">L&quot;在这里填写出错的信息&quot;</span>,<span class="string">L&quot;在这里填报错信息标题&quot;</span>,<span class="number">0</span>）；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                   <p>用MessageBox来显示错误消息的这个方法会贯穿我们游戏编程的始终，如果想让我们的游戏程序遇到问题可以更加智能，就要在我们的游戏程序源代码中多加一些这样的”错误处理”代码。值得一提的是，在运行游戏程序时经常会弹出一个提示框，提示缺失某某D3D的DLL或者MSVR的DLL，程序想要重新安装云云，就是这个MessageBox函数的杰作。</p>
+               </div>
+               <!-- Tag -->
+               <div class="m-padded-lr-responsive m-padded-tb-large">
+                   <div class="ui basic teal left pointing label">测试</div>
+               </div>
+               <!-- Admire -->
+               <div class="ui center aligned basic segment">
+                   <button id="payButton" class="ui orange basic circular button">赞赏</button>
+               </div>
+               <!-- QR-Code -->
+               <div class="ui payQR flowing popup transition hidden">
+                   <div class="ui orange basic label">
+                       <div class="ui images" style="font-size: inherit !important;">
+                           <div class="image">
+                               <img src="./static/Images/Home/wechat.png" alt="Wechat" class="ui rounded bordered image" style="width: 120px">
+                               <div>微信支付</div>
+                           </div>
+                           <div class="image">
+                               <img src="./static/Images/Home/wechat.png" alt="Wechat" class="ui rounded bordered image"  style="width: 120px">
+                               <div>支付宝支付</div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <!-- Copyright -->
+           <div class="ui attached positive message">
+               <div class="ui middle aligned grid">
+                   <div class="eleven wide column">
+                       <ui class="list">
+                           <li>作者：Arvin</li>
+                           <li>发表时间：2022-4-14 15:13</li>
+                           <li>版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</li>
+                           <li>公众号转载：请在文本末尾添加作者署名信息</li>
+                       </ui>
+                   </div>
+                   <div class="five wide column">
+                       <img src="./static/Images/Home/wechat.png" alt="QR-Code" class="ui right floated rounded bordered image" style="width: 110px"/>
+                   </div>
+               </div>
+           </div>
+           <!-- Comment -->
+           <div class="ui attached segment">
+               <div class="ui teal segment">
+                   <div class="ui comments">
+                       <h3 class="ui dividing header">评论</h3>
+                       <div class="comment">
+                           <a class="avatar">
+                               <img src="https://picsum.photos/seed/picsum/100/100">
+                           </a>
+                           <div class="content">
+                               <a class="author">Matt</a>
+                               <div class="metadata">
+                                   <span class="date">今天下午 5:42</span>
+                               </div>
+                               <div class="text">太赞了！ </div>
+                               <div class="actions">
+                                   <a class="reply">回复</a>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="comment">
+                           <a class="avatar">
+                               <img src="https://picsum.photos/seed/picsum/100/100">
+                           </a>
+                           <div class="content">
+                               <a class="author">Elliot Fu</a>
+                               <div class="metadata">
+                                   <span class="date">昨天上午12:30</span>
+                               </div>
+                               <div class="text">
+                                   <p>這對我的研究是非常有用.謝謝!</p>
+                               </div>
+                               <div class="actions">
+                                   <a class="reply">回复</a>
+                               </div>
+                           </div>
+                           <div class="comments">
+                               <div class="comment">
+                                   <a class="avatar">
+                                       <img src="https://picsum.photos/seed/picsum/100/100">
+                                   </a>
+                                   <div class="content">
+                                       <a class="author">Jenny Hess</a>
+                                       <div class="metadata">
+                                           <span class="date">刚刚</span>
+                                       </div>
+                                       <div class="text">艾略特你永远是多么正确 :) </div>
+                                       <div class="actions">
+                                           <a class="reply">回复</a>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="comment">
+                           <a class="avatar">
+                               <img src="https://picsum.photos/seed/picsum/100/100">
+                           </a>
+                           <div class="content">
+                               <a class="author">Joe Henderson</a>
+                               <div class="metadata">
+                                   <span class="date">5 天以前</span>
+                               </div>
+                               <div class="text">老兄，这太棒了。非常感谢。 </div>
+                               <div class="actions">
+                                   <a class="reply">回复</a>
+                               </div>
+                           </div>
+                       </div>
+
+                   </div>
+               </div>
+               <div class="ui form">
+                  <div class="field">
+                      <textarea name="content" placeholder="请输入评论信息..."></textarea>
+                  </div>
+                   <div class="fields">
+                       <div class="field m-mobile-wide m-margin-bottom-small">
+                           <div class="ui left icon input">
+                               <i class="user icon"></i>
+                               <input type="text" name="nickname" placeholder="姓名">
+                           </div>
+                       </div>
+                       <div class="field m-mobile-wide m-margin-bottom-small">
+                           <div class="ui left icon input">
+                               <i class="mail icon"></i>
+                               <input type="text" name="email" placeholder="邮箱">
+                           </div>
+                       </div>
+                       <div class="field m-mobile-wide m-margin-bottom-small">
+                           <button class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布</button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="ui inverted vertical segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="static/Images/Home/wechat.png" class="ui rounded image" alt="wechat" style="width: 100px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">最新文章</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">创想科技(TCT)</a>
+                        <a href="#" class="item">创想科技(TCT)</a>
+                        <a href="#" class="item">创想科技(TCT)</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">联系我们</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">Email: creativetechnology@yeah.net</a>
+                        <a href="#" class="item">QQ: 2644266656</a>
+                        <a href="#" class="item">WeChat: S1917723401</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">创想科技</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-mini">用心去创造值得期待的游戏</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright© 2022-2033 CreativeTechnology</p>
+        </div>
+    </footer>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script type="text/javascript">
+    <!-- 下拉菜单 -->
+    $('.menu.toggle').click(function (){
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    <!-- QR-Code -->
+    $('#payButton').popup({
+        popup : $('.payQR.popup'),
+        on : 'click',
+        position : 'bottom center'
+    });
+</script>
+</body>
+</html>
