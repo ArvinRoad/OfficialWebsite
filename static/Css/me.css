@@ -38,5 +38,8 @@
 .m-container{max-width: 72em !important;margin: auto !important;}
 .m-container-small{max-width: 60em !important;margin: auto !important;}
 
+/* Shadow */
+.m-shadow-small{box-shadow: 0 4px 8px rgb(0,0,0,0.2) !important;}
+
 /* Color */
 .m-black{color: #333 !important;}
