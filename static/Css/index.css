@@ -1,6 +1,5 @@
 /* 背景 */
 body{background: url("../Images/Home/Background-Img01.jpg");}
-
 /* 轮播图 */
 .banner-img{position: absolute;top: 0;left: 0;opacity: 0;transition: all 1.5s;}
 .banner-img:nth-child(1){opacity: 1;}
