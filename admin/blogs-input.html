@@ -53,7 +53,7 @@
         <div class="ui container">
             <form action="#" method="post" class="ui form">
                 <!-- Title -->
-                <div class="field">
+                <div class="required field">
                     <div class="ui left labeled input">
                         <div class="ui selection compact teal basic dropdown label">
                             <input type="hidden" value="原创"/>
@@ -138,6 +138,8 @@
                         </div>
                     </div>
                 </div>
+                <!-- DeBug -->
+                <div class="ui error message"></div>
                 <!-- Button -->
                 <div class="ui right aligned container">
                     <button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
@@ -209,6 +211,26 @@
     <!-- User下拉 -->
     $('.ui.dropdown').dropdown({
         on: 'hover'
+    });
+
+    <!-- 表单验证 -->
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'title',
+                rules: [{
+                    type: 'empty',
+                    prompt: '标题：请输入文章标题'
+                }]
+            },
+            content: {
+                identifier: 'content',
+                rules: [{
+                    type: 'empty',
+                    prompt: '内容: 请输入博客内容'
+                }]
+            }
+        }
     });
 </script>
 </body>
