@@ -7,6 +7,7 @@
     <title>文章详情</title>
     <link rel="icon" href="static/Images/favicon.ico"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"/>
+    <link rel="stylesheet" href="static/css/typo.css"/>
     <link rel="stylesheet" href="static/css/me.css"/>
     <link rel="stylesheet" href="static/css/index.css"/>
 </head>
@@ -65,176 +66,384 @@
                </div>
                <H2 class="ui center aligned header">关于文章测试文档</H2>
                <br>
-               <div id="content" class="m-padded-lr-responsive m-padded-tb-large">
-                   <p>WINAPI 其实就是 _stdcall 有时候也会写作 CALLBACK 它和 WINAPI 等效<br>WinMain 是Windows程序的入口函数</p>
-                   <h3 id="WinMain的第一个参数："><a href="#WinMain的第一个参数：" class="headerlink" title="WinMain的第一个参数："></a>WinMain的第一个参数：</h3><p>HINSTANCE类型的hInstance，它表示该程序当前运行的实例句柄。<br>我们可以对这个类型HINSTANCE进行字面上的理解，h前缀表示这个参数的类型为handle(句柄)，句柄的意思，而后面的Instance中文意思是实例，将两个意思结合起来，所以这个类型就是实例句柄。<br>hInstance其实就是一个数值。当一个程序在Windows下运行时，它唯一对应一个运行中的实例，也只有运行中的程序实例，才有资格分配到句柄。<br>一个应用程序可以运行多个实例，每运行一个实例，系统都会给该实例分配一个句柄，并且通过hInstance参数传递给程序的入口点WinMain函数。</p>
-                   <h3 id="WinMain的第二个参数："><a href="#WinMain的第二个参数：" class="headerlink" title="WinMain的第二个参数："></a>WinMain的第二个参数：</h3><p>HINSTANCE类型的hPrevInstance,表示当前实例的前一个实例句柄。<br>​我们可以对这个参数进行字面上的理解，h表示参数类型为句柄，Prev代表先前的(Previous)意思，Instance依旧表示实例，那么组合起来就是先前的实例句柄，这样顾名思义，是不是很好记忆呢，对于这个参数用法，MSDN中明确表示在Win32环境下，该参数总是取NULL，这就是说在Win32环境下这个参数没有存在感，不起任何作用，只是在进行WinMain函数书写时需要将它专门做为一个参数表示出来而已。</p>
-                   <h3 id="WinMain的第三个参数："><a href="#WinMain的第三个参数：" class="headerlink" title="WinMain的第三个参数："></a>WinMain的第三个参数：</h3><p>LPSTR类型的lpCmdLine，它是一个以空终止的字符串，指定传递给运用程序的命令行参数。<br>依旧是进行参数肢解：lp前缀表示这个参数是一个指针，Cmd表示Command，命令的意思，与Line组合起来就表示命令行。<br>例如在Windows7操作系统下的E盘有一个叫ForTheDream.txt的文件，我们用鼠标双击这个文件时将启动记事本程序(notepad.exe)。<br>此时系统会将E:\ForTheDream.txt作为命令行的参数传递给记事本程序的WinMain函数，记事本程序会在得到这个文件的路径后，就会在窗口中正确显示这个文件的内容。</p>
-                   <h3 id="WinMain的第四个参数："><a href="#WinMain的第四个参数：" class="headerlink" title="WinMain的第四个参数："></a>WinMain的第四个参数：</h3><p>int类型的nCmdShow，指定程序窗口应该如何显示，是最大化，最小化，还是隐藏等等。<br>这个参数可有如下取值：</p>
-                   <table>
+               <div id="content" class="typo typo-selection m-padded-lr-responsive m-padded-tb-large">
+                   <h1>中文网页重设与排版：<i class="serif">Typo.css</i></h1><br/>
+
+                   <h2 id="tagline" class="serif">一致化浏览器排版效果，构建最适合中文阅读的网页排版</h2>
+
+                   <ol id="table">
+                       <li><a href="#section1">关于 <i class="serif">Typo.css</i></a></li>
+                       <li><a href="#section2">排版实例</a>
+                           <ul>
+                               <li><a href="#section2-1">例1：论语学而篇第一</a></li>
+                               <li><a href="#section2-2">例2：英文排版</a></li>
+                           </ul>
+                       </li>
+                       <li><a href="#section3">附录</a>
+                           <ul>
+                               <li><a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a></li>
+                               <li><a href="#appendix2">开源许可</a></li>
+                           </ul>
+                       </li>
+                   </ol>
+
+                   <h2 id="section1">一、关于 <i class="serif">Typo.css</i></h2>
+
+                   <p><i class="serif">Typo.css</i> 的目的是，在一致化浏览器排版效果的同时，构建最适合中文阅读的网页排版。</p>
+                   <h4>现状和如何去做：</h4>
+
+                   <p class="typo-first">排版是一个麻烦的问题 <sup><a href="#appendix1"># 附录一</a></sup>，需要精心设计，而这个设计却是常被视觉设计师所忽略的。前端工程师更常看到这样的问题，但不便变更。因为在多个 OS 中的不同浏览器渲染不同，改动需要多的时间做回归测试，所以改变变得更困难。而像我们一般使用的
+                       Yahoo、Eric Meyer 和 Alice base.css 中采用的 Reset 都没有很好地考虑中文排版。<i class="serif">Typo.css</i> 要做的就是解决中文排版的问题。</p>
+
+                   <p><strong><i class="serif">Typo.css</i> 测试于如下平台：</strong></p>
+                   <table class="ui table" summary="Typo.css 的测试平台列表">
                        <thead>
                        <tr>
-                           <th>参数</th>
-                           <th>值</th>
-                           <th>意义</th>
+                           <th>OS/浏览器</th>
+                           <th>Firefox</th>
+                           <th>Chrome</th>
+                           <th>Safari</th>
+                           <th>Opera</th>
+                           <th>IE9</th>
+                           <th>IE8</th>
+                           <th>IE7</th>
+                           <th>IE6</th>
                        </tr>
                        </thead>
-                       <tbody><tr>
-                           <td>SW_HIDE</td>
-                           <td>0</td>
-                           <td>隐藏此窗口并激活另一个窗口</td>
+                       <tbody>
+                       <tr>
+                           <td>OS X</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
                        </tr>
                        <tr>
-                           <td>SW_MAXIMIZE</td>
-                           <td>3</td>
-                           <td>最大化指定的窗口</td>
+                           <td>Win 7</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>-</td>
                        </tr>
                        <tr>
-                           <td>SW_MINIMIZE</td>
-                           <td>6</td>
-                           <td>最小化指定的窗口并激活当前Z次序中顶部的窗口</td>
+                           <td>Win XP</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>-</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>✔</td>
                        </tr>
                        <tr>
-                           <td>SW_RESTOPE</td>
-                           <td>9</td>
-                           <td>激活并显示此窗口，如果此窗口被最小化或者最大化了，系统会恢复它到原始尺寸的位置，一个应用程序应该在恢复最小化的窗口时指定此SW_RESTORE标识</td>
+                           <td>Ubuntu</td>
+                           <td>✔</td>
+                           <td>✔</td>
+                           <td>-</td>
+                           <td>✔</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
+                           <td>-</td>
                        </tr>
-                       <tr>
-                           <td>SW_SHOW</td>
-                           <td>5</td>
-                           <td>以当前的尺寸和位置激活与显示指定窗口</td>
-                       </tr>
-                       <tr>
-                           <td>SW_SHOWMAXIMIZED</td>
-                           <td>3</td>
-                           <td>最大化激活并显示这个窗口</td>
-                       </tr>
-                       <tr>
-                           <td>SW_SHOWMINIMIZED</td>
-                           <td>2</td>
-                           <td>最小化激活并显示这个窗口</td>
-                       </tr>
-                       <tr>
-                           <td>SW_SHOWMINNOACTIVE</td>
-                           <td>7</td>
-                           <td>最小化显示这个窗口，与SW_SHOWMINIMIZED唯一的区别是不会去激活指定的窗口</td>
-                       </tr>
-                       <tr>
-                           <td>SW_SHOWNA</td>
-                           <td>8</td>
-                           <td>以当前的尺寸和位置激活与显示指定窗口，与SW_SHOW的唯一区别是不会去激活指定的窗口</td>
-                       </tr>
-                       <tr>
-                           <td>SW_SHOWNOACTIVATE</td>
-                           <td>4</td>
-                           <td>显示一个窗口，若指定的窗口是最小化或者最大化的，系统会恢复其到原始尺寸和位置，与SW_SHOWNORMAL的唯一区别是不会去激活指定的窗口</td>
-                       </tr>
-                       <tr>
-                           <td>SW_SHOWNORMAL</td>
-                           <td>1</td>
-                           <td>激活和显示一个窗口，若指定的窗口是最小化或者最大化的，系统会恢复其到原始尺寸和位置。一个应用程序应该在第一次显示窗口的时候指定这个标识</td>
-                       </tr>
-                       </tbody></table>
-                   <h2 id="MessageBox函数"><a href="#MessageBox函数" class="headerlink" title="MessageBox函数"></a>MessageBox函数</h2><p>MessageBox函数，它用于显示一个消息框，可以通过一些参数来设置这个消息框的样式。在MSDN中查到这个函数有如下原型：</p>
-                   <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function">Int WINAPI <span class="title">MessageBox</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">_In_opt_ HWND hWnd,</span></span></span><br><span class="line"><span class="params"><span class="function">_In_opt_ LPCTSTR lpTest,</span></span></span><br><span class="line"><span class="params"><span class="function">_In_opt_ LPCTSTR lpCaption,</span></span></span><br><span class="line"><span class="params"><span class="function">_In_ UINT uType</span></span></span><br><span class="line"><span class="params"><span class="function">)</span></span>;</span><br></pre></td></tr></table></figure>
-                   <p>这里的_In_opt 类似于之前提到过的_in，只不过是后面多了一个_opt,表示可选的（Optional），两个词组合在一起就表示”可选的输入参数”了。就是说这个参数我们可以自己填内容，不填具体内容的话直接填NULL也行得通，选择权在于我们。</p>
-                   <h3 id="MessageBox函数第一个参数："><a href="#MessageBox函数第一个参数：" class="headerlink" title="MessageBox函数第一个参数："></a>MessageBox函数第一个参数：</h3><p>HWND类型的hWnd，表示我们显示的消息框所属的窗口的句柄。在进行Windows编程中，我们常常要和句柄打交道，后面我们会具体阐述什么是句柄，在我们的Visual Studio程序中，这个参数设为了NULL，表示消息框是从属于桌面。</p>
-                   <h3 id="MessageBox函数的第二个参数："><a href="#MessageBox函数的第二个参数：" class="headerlink" title="MessageBox函数的第二个参数："></a>MessageBox函数的第二个参数：</h3><p>LPCTSTR类型的lpText，它是一个以NULL结尾的字符串，表示所要显示的消息的内容。</p>
-                   <h3 id="MessageBox函数的第三个参数："><a href="#MessageBox函数的第三个参数：" class="headerlink" title="MessageBox函数的第三个参数："></a>MessageBox函数的第三个参数：</h3><p>LPCTSTR类型的lpCaption，它也是一个以NULL结尾的字符串，在其中填我们要显示的消息框的标题的内容。</p>
-                   <h3 id="MessageBox函数的第四个参数："><a href="#MessageBox函数的第四个参数：" class="headerlink" title="MessageBox函数的第四个参数："></a>MessageBox函数的第四个参数：</h3><p>UINT类型的uType，表示我们消息窗口需要什么样的样式。微软已经为我们定义好了很多可供选择的样式和消息对应的图标，一些常用的样式列表如下：</p>
-                   <table>
+                       </tbody>
+                   </table>
+
+                   <h4>中文排版的重点和难点</h4>
+
+                   <p>在中文排版中，HTML4 的很多标准在语义在都有照顾到。但从视觉效果上，却很难利用单独的 CSS 来实现，像<abbr title="在文字下多加一个点">着重号</abbr>（例：这里<em class="typo-em">强调一下</em>）。在 HTML4 中，专名号标签（<code>&lt;u&gt;</code>）已经被放弃，而
+                       HTML5 被<a href="//html5doctor.com/u-element/">重新提起</a>。<i class="serif">Typo.css</i> 也根据实际情况提供相应的方案。我们重要要注意的两点是：</p>
+                   <ol>
+                       <li>语义：语义对应的用法和样式是否与中文排版一致</li>
+                       <li>表现：在各浏览器中的字体、大小和缩放是否如排版预期</li>
+                   </ol>
+                   <p>对于这些，<i class="serif">Typo.css</i> 排版项目的中文偏重注意点，都添加在附录中，详见：</p>
+                   <blockquote>
+                       <b>附录一</b>：<a href="#appendix1"><i class="serif">Typo.css</i> 排版偏重点</a>
+                   </blockquote>
+
+                   <p>目前已有像百姓网等全面使用 <i class="serif">Typo.css</i> 的项目，测试平台的覆盖，特别是在<abbr title="手机、平板电脑等移动平台">移动端</abbr>上还没有覆盖完主流平台，希望有能力的同学能加入测试行列，或者加入到 <i class="serif">Typo.css</i>
+                       的开发。加入方法：<a href="https://github.com/sofish/Typo.css">参与 <i class="serif">Typo.css</i> 开发</a>。如有批评、建议和意见，也随时欢迎给在 Github 直接提 <a
+                               href="https://github.com/sofish/Typo.css/issues">issues</a>，或给<abbr title="Sofish Lin, author of Typo.css"
+                                                                                                   role="author">我</abbr>发<a
+                               href="mailto:sofish@icloud.com">邮件</a>。</p>
+
+
+                   <h2 id="section2">二、排版实例：</h2>
+
+                   <p>提供2个排版实例，第一个中文实例来自于来自于<cite class="typo-unique">张燕婴</cite>的《论语》，由于古文排版涉及到的元素比较多，所以采用《论语》中《学而》的第一篇作为排版实例介绍；第2个来自到经典的
+                       Lorem Ipsum，并加入了一些代码和列表等比较具有代表性的排版元素。</p>
+
+                   <h3 id="section2-1">例1：论语学而篇第一</h3>
+
+                   <p>
+                       <small><b>作者：</b><abbr title="名丘，字仲尼">孔子</abbr>（
+                           <time>前551年9月28日－前479年4月11日</time>
+                           ）
+                       </small>
+                   </p>
+
+                   <h4>本篇引语</h4>
+
+                   <p>
+                       《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。 </p>
+
+                   <h4>原文</h4>
+
+                   <p>子曰：「学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知，而不愠，不亦君子乎？」 </p>
+
+                   <h4>译文</h4>
+
+                   <p>孔子说：「学了又时常温习和练习，不是很愉快吗？有志同道合的人从远方来，不是很令人高兴的吗？人家不了解我，我也不怨恨、恼怒，不也是一个有德的君子吗？」 </p>
+
+                   <h4>评析</h4>
+
+                   <p>宋代著名学者<u class="typo-u">朱熹</u>对此章评价极高，说它是「入道之门，积德之基」。本章这三句话是人们非常熟悉的。历来的解释都是：学了以后，又时常温习和练习，不也高兴吗等等。三句话，一句一个意思，前后句子也没有什么连贯性。但也有人认为这样解释不符合原义，指出这里的「学」不是指学习，而是指学说或主张；「时」不能解为时常，而是时代或社会的意思，「习」不是温习，而是使用，引申为采用。而且，这三句话不是孤立的，而是前后相互连贯的。这三句的意思是：自己的学说，要是被社会采用了，那就太高兴了；退一步说，要是没有被社会所采用，可是很多朋友赞同<abbr
+                           title="张燕婴">我</abbr>的学说，纷纷到我这里来讨论问题，我也感到快乐；再退一步说，即使社会不采用，人们也不理解我，我也不怨恨，这样做，不也就是君子吗？（见《齐鲁学刊》1986年第6期文）这种解释可以自圆其说，而且也有一定的道理，供读者在理解本章内容时参考。
+                   </p>
+
+                   <p>此外，在对「人不知，而不愠」一句的解释中，也有人认为，「人不知」的后面没有宾语，人家不知道什么呢？当时因为孔子有说话的特定环境，他不需要说出知道什么，别人就可以理解了，却给后人留下一个谜。有人说，这一句是接上一句说的，从远方来的朋友向我求教，我告诉他，他还不懂，我却不怨恨。这样，「人不知」就是「人家不知道我所讲述的」了。这样的解释似乎有些牵强。</p>
+
+                   <p>总之，本章提出以学习为乐事，做到人不知而不愠，反映出孔子学而不厌、诲人不倦、注重修养、严格要求自己的主张。这些思想主张在《论语》书中多处可见，有助于对第一章内容的深入了解。</p>
+
+                   <h3 id="section2-2">例2：英文排版</h3>
+
+                   <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                       standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+                       type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                       essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
+                       passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                       Ipsum.</p>
+                   <blockquote>
+                       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                   </blockquote>
+
+                   <h4>The standard Lorem Ipsum passage, used since the 1500s</h4>
+
+                   <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                       Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                       occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+                   <h4>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h4>
+
+                   <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+                       eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                       voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                       voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                       velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim
+                       ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
+                       consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+                       vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+
+                   <h4>List style in action</h4>
+                   <ul>
+                       <li>If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as
+                           your brother and hope as your sentry.
+                           <p>如果你希望成功，当以恒心为良友，以经验为参谋，以谨慎为兄弟，以希望为哨兵。</p>
+                       </li>
+                       <li>Sometimes one pays most for the things one gets for nothing.
+                           <p>有时候一个人为不花钱得到的东西付出的代价最高。</p>
+                       </li>
+                       <li>Only those who have the patience to do simple things perfectly ever acquire the skill to do difficult things
+                           easily.
+                           <p>只有有耐心圆满完成简单工作的人，才能够轻而易举的完成困难的事。</p>
+                       </li>
+                   </ul>
+
+                   <h4>You may want to create a perfect <code>&lt;hr /&gt;</code> line, despite the fact that there will never have one
+                   </h4>
+                   <hr/>
+                   <p><abbr title="法国作家罗切福考尔德">La Racheforcauld</abbr> said:
+                       <mark>"Few things are impossible in themselves; and it is often for want of will, rather than of means, that man fails
+                           to succeed".
+                       </mark>
+                       You just need to follow the browser's behavior, and set a right <code>margin</code> to it。it will works nice as the
+                       demo you're watching now. The following code is the best way to render typo in Chinese:
+                   </p>
+                   <pre>
+/* 标题应该更贴紧内容，并与其他块区分，margin 值要相应做优化 */
+h1,h2,h3,h4,h5,h6 {
+    line-height:1;font-family:Arial,sans-serif;margin:1.4em 0 0.8em;
+}
+h1{font-size:1.8em;}
+h2{font-size:1.6em;}
+h3{font-size:1.4em;}
+h4{font-size:1.2em;}
+h5,h6{font-size:1em;}
+
+/* 现代排版：保证块/段落之间的空白隔行 */
+.typo p, .typo pre, .typo ul, .typo ol, .typo dl, .typo form, .typo hr {
+    margin:1em 0 0.6em;
+}
+</pre>
+
+                   <h3 id="section3">三、附录</h3>
+
+                   <h5 id="appendix1">1、<i class="serif">Typo.css</i> 排版偏重点</h5>
+                   <table class="ui table" summary="Typo.css 排版偏重点">
                        <thead>
                        <tr>
-                           <th>标识名（Flags）</th>
-                           <th>含有精析</th>
+                           <th>类型</th>
+                           <th>语义</th>
+                           <th>标签</th>
+                           <th>注意点</th>
                        </tr>
                        </thead>
-                       <tbody><tr>
-                           <td>MB_ABORTRETRYIGNORE</td>
-                           <td>消息框带有三个按钮：Abort、Retry和Ignore</td>
+                       <tbody>
+                       <tr>
+                           <th rowspan="15">基础标签</th>
+                           <td>标题</td>
+                           <td><code>h1</code> ～ <code>h6</code></td>
+                           <td>全局不强制大小，<code>.typo</code> 中标题与其对应的内容应紧贴，并且有相应的大小设置</td>
                        </tr>
                        <tr>
-                           <td>MB_OK</td>
-                           <td>消息框带有唯一一个按钮：OK。需要注意的是，MB_OK 是系统默认的MessageBox函数样式</td>
+                           <td>上、下标</td>
+                           <td><code>sup</code>/<code>sub</code></td>
+                           <td>保持与 MicroSoft Office Word 等程序的日常排版一致</td>
                        </tr>
                        <tr>
-                           <td>MB_OKCANCEL</td>
-                           <td>消息框带有两个按钮：OK和Cancel</td>
+                           <td>引用</td>
+                           <td><code>blockquote</code></td>
+                           <td>显示/嵌套样式</td>
                        </tr>
                        <tr>
-                           <td>MB_RETRYCANCEL</td>
-                           <td>消息框带有两个按钮：Retry和Cancel</td>
+                           <td>缩写</td>
+                           <td><code>abbr</code></td>
+                           <td>是否都有下划线，鼠标 <code>hover</code> 是否为帮助手势</td>
                        </tr>
                        <tr>
-                           <td>MB_YESNO</td>
-                           <td>消息框带有两个按钮：YES和NO</td>
+                           <td>分割线</td>
+                           <td><code>hr</code></td>
+                           <td>显示的 <code>padding</code> 和 <code>margin</code>正确</td>
                        </tr>
                        <tr>
-                           <td>MB_YESNOCANCEL</td>
-                           <td>消息框带有三个按钮：YES、NO和Cancel</td>
-                       </tr>
-                       </tbody></table>
-                   <p>常见的图标我们也是通过一些标识名来指定，如以下几种：</p>
-                   <table>
-                       <thead>
-                       <tr>
-                           <th>标识名（Flags）</th>
-                           <th>含义精析</th>
-                       </tr>
-                       </thead>
-                       <tbody><tr>
-                           <td>MB_ICONWARNING</td>
-                           <td>“警告”图标</td>
+                           <td>列表</td>
+                           <td><code>ul</code>/<code>ol</code>/<code>dl</code></td>
+                           <td>在全局没有 <code>list-style</code>，在 .<code>typo</code> 中对齐正确</td>
                        </tr>
                        <tr>
-                           <td>MB_ICONASTERISK</td>
-                           <td>“风险”图标</td>
+                           <td>定义列表</td>
+                           <td><code>dl</code></td>
+                           <td>全局 <code>padding</code> 和 <code>margin</code>为0， .<code>typo</code> 中对齐正确</td>
                        </tr>
                        <tr>
-                           <td>MB_ICONSTOP</td>
-                           <td>“停止”图标</td>
-                       </tr>
-                       </tbody></table>
-                   <p>这里只列出了一些常用的标识，完整版可以自行查阅MSDN。<br>想要多个标识一起使用的话，我们可以采用逻辑或（Logical OR）把不同的标识连接起来，具体的符号是键盘上Enter键上方的那条竖杠”|”。比如要创建一个具有YES和NO的按钮并带有”问号”图标的消息框，我们就把uType填成这样：MB_YESNO|MB_ICONQUESTION,非常直观。后面我们也会经常碰到类似的、需要多个标识符同时使用的场合，用一下这条竖杠”|”连接一下就好了。<br>和大多数Win32函数一样，MessageBox函数也有返回值。在Visual Studio示例程序中，这个返回值可以忽略。而如果我们创建了具有对应按钮的消息框，就涉及到按下具体的按键，就需要给出按键的返回值，这样我们就需要判断哪个键被按下了，再对应作出相应的响应。返回值的列表如下：</p>
-                   <table>
-                       <thead>
-                       <tr>
-                           <th>返回值类型</th>
-                           <th>精析</th>
-                       </tr>
-                       </thead>
-                       <tbody><tr>
-                           <td>IDABORT</td>
-                           <td>按下Abort后的返回值</td>
+                           <td>选项</td>
+                           <td><code>input[type=radio[, checkbox]]</code></td>
+                           <td>与其他 <code>form</code> 元素排版时是否居中</td>
                        </tr>
                        <tr>
-                           <td>IDCANCEL</td>
-                           <td>按下Cancel后的返回值</td>
+                           <td>斜体</td>
+                           <td><code>i</code></td>
+                           <td>只设置一种斜体，让 <code>em</code> 和 <code>cite</code> 显示为正体</td>
                        </tr>
                        <tr>
-                           <td>IDIGNORE</td>
-                           <td>按下Ignore后的返回值</td>
+                           <td>强调</td>
+                           <td><code>em</code></td>
+                           <td>在全局显示正体，在 <code>.typo</code> 中显示与 <code>b</code> 和 <code>strong</code> 的样式一致，为粗体</td>
                        </tr>
                        <tr>
-                           <td>IDNO</td>
-                           <td>按下NO之后的返回值</td>
+                           <td>加强</td>
+                           <td><code>strong/b</code></td>
+                           <td>显示为粗体</td>
                        </tr>
                        <tr>
-                           <td>IDOK</td>
-                           <td>按下OK之后的返回值</td>
+                           <td>标记</td>
+                           <td><code>mark</code></td>
+                           <td>类似荧光笔</td>
                        </tr>
                        <tr>
-                           <td>IDRETRY</td>
-                           <td>按下Retry之后的返回值</td>
+                           <td>印刷</td>
+                           <td><code>small</code></td>
+                           <td>保持为正确字体的 80% 大小，颜色设置为浅灰色</td>
                        </tr>
                        <tr>
-                           <td>IDYES</td>
-                           <td>按下Yes之后的返回值</td>
+                           <td>表格</td>
+                           <td><code>table</code></td>
+                           <td>全局不显示线条，在 <code>table</code> 中显示表格外框，并且表头有浅灰背景</td>
                        </tr>
-                       </tbody></table>
-                   <p>这个短小的函数MessageBox我们算是讲完了。它虽然很简单，但是非常好用，可谓麻雀虽小五脏俱全，特别是在需要向玩家显示出错误消息的时候，比如我们写了一个函数，在程序执行出错的时候我们要知道出错的地方，就可以这样来写：</p>
-                   <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>（error）&#123;</span><br><span class="line">MessageBox（<span class="literal">NULL</span>,<span class="string">L&quot;在这里填写出错的信息&quot;</span>,<span class="string">L&quot;在这里填报错信息标题&quot;</span>,<span class="number">0</span>）；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-                   <p>用MessageBox来显示错误消息的这个方法会贯穿我们游戏编程的始终，如果想让我们的游戏程序遇到问题可以更加智能，就要在我们的游戏程序源代码中多加一些这样的”错误处理”代码。值得一提的是，在运行游戏程序时经常会弹出一个提示框，提示缺失某某D3D的DLL或者MSVR的DLL，程序想要重新安装云云，就是这个MessageBox函数的杰作。</p>
+                       <tr>
+                           <td>代码</td>
+                           <td><code>pre</code>/<code>code</code></td>
+                           <td>字体使用 <code>courier</code> 系字体，保持与 <code>serif</code> 有比较一致的显示效果</td>
+                       </tr>
+                       <tr>
+                           <th rowspan="5">特殊符号</th>
+                           <td>着重号</td>
+                           <td><em class="typo-em">在文字下加点</em></td>
+                           <td>在支持 <code>:after</code> 和 <code>:before</code> 的浏览器可以做渐进增强实现</td>
+                       </tr>
+                       <tr>
+                           <td>专名号</td>
+                           <td><u>林建锋</u></td>
+                           <td>专名号，有下划线，使用 <code>u</code> 或都 <code>.typo-u</code> 类</td>
+                       </tr>
+                       <tr>
+                           <td>破折号</td>
+                           <td>——</td>
+                           <td>保持一划，而非两划</td>
+                       </tr>
+                       <tr>
+                           <td>人民币</td>
+                           <td>&yen;</td>
+                           <td>使用两平等线的符号，或者 HTML 实体符号 <code>&amp;yen;</code></td>
+                       </tr>
+                       <tr>
+                           <td>删除符</td>
+                           <td>
+                               <del>已删除（deleted）</del>
+                           </td>
+                           <td>一致化各浏览器显示，中英混排正确</td>
+                       </tr>
+                       <tr>
+                           <th rowspan="3">加强类</th>
+                           <td>专名号</td>
+                           <td><code>.typo-u</code></td>
+                           <td>由于 <code>u</code> 被 HTML4 放弃，在向后兼容上推荐使用 <code>.typo-u</code></td>
+                       </tr>
+                       <tr>
+                           <td>着重符</td>
+                           <td><code>.typo-em</code></td>
+                           <td>利用 <code>:after</code> 和 <code>:before</code> 实现着重符</td>
+                       </tr>
+                       <tr>
+                           <td>清除浮动</td>
+                           <td><code>.clearfix</code></td>
+                           <td>与一般 CSS Reset 保持一对致 API</td>
+                       </tr>
+                       <tr>
+                           <th rowspan="5">注意点</th>
+                           <td colspan="3">（1）中英文混排行高/行距</td>
+                       </tr>
+                       <tr>
+                           <td colspan="3">（2）上下标在 IE 中显示效果</td>
+                       </tr>
+                       <tr>
+                           <td colspan="3">（3）块/段落分割空白是否符合设计原则</td>
+                       </tr>
+                       <tr>
+                           <td colspan="3">（4）input 多余空间问题</td>
+                       </tr>
+                       <tr>
+                           <td colspan="3">（5）默认字体色彩，目前采用 <code>#333</code> 在各种浏览显示比较好</td>
+                       </tr>
+                       </tbody>
+                   </table>
+
+                   <h5 id="appendix2">2、开源许可</h5>
+
+                   <p><i class="serif">Typo.css</i> 基于 <a href="//zh.wikipedia.org/wiki/MIT_License">MIT License</a> 开源，使用代码只需说明来源，或者引用 <a
+                           href="//typo.sofi.sh/license.txt">license.txt</a> 即可。</p>
                </div>
                <!-- Tag -->
                <div class="m-padded-lr-responsive m-padded-tb-large">
