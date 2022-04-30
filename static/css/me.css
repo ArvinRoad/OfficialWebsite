@@ -1,5 +1,6 @@
 .m-padded-mini{padding: 0.2em !important;}
 .m-padded-tiny{padding: 0.3em !important;}
+.m-padded{padding: 1em !important;}
 .m-padded-tb-mini{padding-top: 0.2em !important;padding-bottom: 0.2em !important;}
 .m-padded-tb-tiny{padding-top: 0.3em !important;padding-bottom: 0.3em !important;}
 .m-padded-tb-small{padding-top: 0.5em !important;padding-bottom: 0.5em !important;}
@@ -40,6 +41,10 @@
 
 /* Shadow */
 .m-shadow-small{-webkit-box-shadow: 0 4px 8px rgb(0,0,0,0.2) !important;box-shadow: 0 4px 8px rgb(0,0,0,0.2) !important;}
+
+/* Position */
+.m-fixed{position: fixed !important;z-index: 10 !important;}
+.m-right-bottom{bottom: 0 !important;right: 0 !important;}
 
 /* Color */
 .m-black{color: #333 !important;}
