@@ -41,7 +41,7 @@
     </nav>
 
     <!-- Content -->
-    <div class="m-container-small m-padded-tb-big animated fadeIn">
+    <div id="waypoint" class="m-container-small m-padded-tb-big animated fadeIn">
        <div class="ui container">
            <!-- Header -->
            <div class="ui top attached segment">
@@ -587,7 +587,7 @@ h5,h6{font-size:1em;}
     </div>
 
     <!-- Option -->
-    <div class="m-padded m-fixed m-right-bottom">
+    <div id="toolbar" class="m-padded m-fixed m-right-bottom" style="display: none;">
         <div class="ui vertical icon buttons">
             <button type="button" class="ui toc teal button" >目录</button>
             <a href="#comment-container" class="ui teal button" >留言</a>
@@ -649,6 +649,7 @@ h5,h6{font-size:1em;}
 <script src="static/lib/prism/prism.js"></script>
 <script src="static/lib/tocbot/tocbot.min.js"></script>
 <script src="static/lib/qrcode/qrcode.min.js"></script>
+<script src="static/lib/waypoints/jquery.waypoints.min.js"></script>
 <script type="text/javascript">
     <!-- CatalogueInit -->
     tocbot.init({
@@ -699,6 +700,18 @@ h5,h6{font-size:1em;}
     <!-- toTop -->
     $('#toTop-button').click(function (){
         $(window).scrollTo(0,500);
+    });
+
+    <!-- waypoints -->
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function (direction){
+            if (direction == 'down'){
+                $('#toolbar').show(100);
+            }else {
+                $('#toolbar').hide(500);
+            }
+        }
     });
 </script>
 </body>
