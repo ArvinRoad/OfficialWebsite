@@ -591,7 +591,7 @@ h5,h6{font-size:1em;}
         <div class="ui vertical icon buttons">
             <button type="button" class="ui toc teal button" >目录</button>
             <a href="#comment-container" class="ui teal button" >留言</a>
-            <button class="ui icon teal button"><i class="weixin icon"></i></button>
+            <button class="ui wechat icon teal button"><i class="weixin icon"></i></button>
             <a href="#" class="ui icon teal button" ><i class="chevron up icon"></i></a>
         </div>
     </div>
@@ -602,6 +602,7 @@ h5,h6{font-size:1em;}
 
         </ol>
     </div>
+    <div id="qrcode" class="ui WechatQR flowing popup transition hidden" style="width: 130px !important;"></div>
 
     <!-- Footer -->
     <footer class="ui inverted vertical segment m-padded-tb-massive">
@@ -646,6 +647,7 @@ h5,h6{font-size:1em;}
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <script src="static/lib/prism/prism.js"></script>
 <script src="static/lib/tocbot/tocbot.min.js"></script>
+<script src="static/lib/qrcode/qrcode.min.js"></script>
 <script type="text/javascript">
     <!-- CatalogueInit -->
     tocbot.init({
@@ -674,6 +676,23 @@ h5,h6{font-size:1em;}
         popup : $('.toc-container.popup'),
         on : 'click',
         position : 'left center'
+    });
+
+    <!-- WechatQR -->
+    $('.wechat').popup({
+        popup: $('.WechatQR'),
+        on: 'hover',
+        position: 'left center'
+    });
+
+    <!-- WebQR -->
+    var qrcode = new QRCode("qrcode",{
+        text: "http://jindo.dev.naver.com/collie",
+        width: 110,
+        height: 110,
+        colorDark: "#000000",
+        colorLight: "#FFFFFF",
+        correctLevel: QRCode.CorrectLevel.H
     });
 </script>
 </body>
